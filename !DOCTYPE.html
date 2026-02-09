@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Секретная награда</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(45deg, #0c3b0c, #000);
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            color: #f5f5dc;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .header {
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
+            text-shadow: 0 0 10px #00ff00;
+            margin-bottom: 20px;
+            border: 2px dashed #8b4513;
+            padding: clamp(10px, 3vw, 15px);
+            background: rgba(0, 0, 0, 0.7);
+            width: 100%;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            line-height: 1.4;
+        }
+        
+        .code-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .code-label {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            color: #00ff00;
+        }
+        
+        .code-value {
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            color: #ffd700;
+            font-weight: bold;
+            min-width: 200px;
+            min-height: 2em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border: 2px solid #8b4513;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            animation: glow 2s infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { box-shadow: 0 0 5px #ffd700; }
+            to { box-shadow: 0 0 15px #ffd700; }
+        }
+        
+        .instruction {
+            background: rgba(139, 69, 19, 0.95);
+            color: #fff8dc;
+            padding: clamp(12px, 3vw, 15px);
+            margin: 15px 0;
+            border-radius: 8px;
+            font-size: clamp(1rem, 3.5vw, 1.2rem);
+            width: 100%;
+            border: 1px solid #ffd700;
+            line-height: 1.5;
+        }
+        
+        .button {
+            display: inline-block;
+            background: linear-gradient(to bottom, #2a2a2a, #000);
+            color: #00ff00;
+            padding: clamp(15px, 4vw, 20px) clamp(30px, 6vw, 40px);
+            margin: 25px 0;
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            text-decoration: none;
+            border: 3px solid #8b4513;
+            border-radius: 10px;
+            box-shadow: 0 0 15px #00ff00;
+            transition: all 0.3s;
+            width: auto;
+            max-width: 90%;
+            text-align: center;
+        }
+        
+        .button:active {
+            box-shadow: 0 0 25px #00ff00;
+            background: linear-gradient(to bottom, #3a3a3a, #111);
+            transform: scale(1.03);
+        }
+        
+        .ps {
+            margin-top: 30px;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            color: #ccc;
+            font-style: italic;
+            border-top: 1px solid #8b4513;
+            padding-top: 15px;
+            width: 100%;
+            line-height: 1.4;
+}
+        
+        .debrief {
+            font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+            color: #aaa;
+            margin-top: 10px;
+            width: 100%;
+        }
+        
+        @media (max-width: 360px) {
+            body {
+                padding: 10px;
+            }
+            .button {
+                padding: 12px 25px;
+                font-size: 1.1rem;
+            }
+            .code-container {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            [СЕКРЕТНОЕ ПОСЛАНИЕ]<br>
+            ДЛЯ ВЫСШЕГО КОМСОСТАВА РСО<br>
+            ЗВЁЗДНЫЙ ДЕСАНТ ★
+        </div>
+        
+        <div class="code-container">
+            <div class="code-label">КОД ДОСТУПА:</div>
+            <div class="code-value" id="codeValue">
+                <!-- Меняющийся код будет здесь -->
+            </div>
+        </div>
+        
+        <div class="instruction">
+            ⚠ ВНИМАНИЕ!<br>
+            За данной ссылкой находится награда, над которой я корпел с момента десанта.<br>
+            Для получения нажмите кнопку ниже. Система активирована.
+        </div>
+        
+        <a class="button" href="https://vkvideo.ru/video24715592_167998221" target="_blank" rel="noopener noreferrer">
+            [ ПОЛУЧИТЬ НАГРАДУ ]
+        </a>
+        
+        <div class="ps">
+            P.S. Серьёзно. Спасибо за всё.<br>
+            Десант «Северное Сияние» - 2026
+        </div>
+
+        <div class="debrief">
+            *является частью церемонии.
+        </div>
+    </div>
+
+    <script>
+        const codes = [
+            "ВАЛЕРИЯ БЕЗДОМОВНА",
+            "ТАРАНТУЛ ИГОРЬ",
+            "ПАЛЬБА НИКОЛАЕВИЧ",
+            "ЕЛЕНА СТАРОГОРОДОВА",
+            "ЕЛИЗАВЕТА ДВУХДЕСАНТОВНА",
+            "НИКИТА ФИЛОСИФИУС",
+            "ЮРИЙ ПОВАРИНИ",
+            "ВИКА ТОКМАШИНА",
+            "ВОВАНТЯЙ",
+            "АМБАСАДОР РЖД",
+            "МУЖСКАЯ ПРЕССА",
+            "ИРИНА ЕПТВОЮМАТЬ",
+            "ЕЛЕНА В ПОДДЕРЖКЕ ЛЕТУЧАЯ",
+            "ВИКТОРИЯ КОФЕВАРКИНА",
+            "ВЕРОНИКА ТАНЦУЮЩАЯ",
+            "АНДРЮША САМАГОН",
+            "АВТОЛЕДИ",
+            "ВЕНЯОДИН"
+        ];
+
+        let currentIndex = 0;
+        const codeElement = document.getElementById('codeValue');
+
+        function updateCode() {
+            codeElement.textContent = codes[currentIndex];
+            currentIndex = (currentIndex + 1) % codes.length;
+        }
+
+        updateCode();
+        // каждые 2 секунды
+        setInterval(updateCode, 2000);
+    </script>
+</body>
+</html>
